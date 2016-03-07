@@ -30,6 +30,7 @@ b4pfm2D b4pfm2D_init_solver(cl_context context, b4pfm2D_params *opt_params, int 
  * ```force_radix2```: Use only radix-2 solver (benchmarking)
  * ```debug```: Debug flag
  * ```error```: Error flag
+ * Return value: Solver handle
 
 #### Run a 2D solver:
 ```
@@ -39,6 +40,7 @@ int b4pfm2D_run_solver(b4pfm2D solver, cl_command_queue queue, cl_mem f, cl_mem 
  * ```queue```: OpenCL command queue
  * ```f```: Right-hand side vector
  * ```tmp```: Temporary buffer
+ * Return value: Error flag
 
 #### Transfer a float vector and run a 2D solver:
 ```
