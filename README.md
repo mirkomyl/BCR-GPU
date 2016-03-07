@@ -106,8 +106,8 @@ for(int i = 0; i < N1; i++)
       for(int j = 0; j < N2; j++)
           f[i*LDF+j] = get_right_hand_size(i, j);
 
-// Initialize the solver using the optimized parameters. Will use the 
-// first available OpenCL device and default parameters.
+// Initialize the solver using the default parameters. Will use the 
+// first available OpenCL device.
 b4pfm2D solver = b4pfm2D_init_solver(
       0, 0, K1, K2, LDF, DOUBLE, FORCE_RADIX2, B4PFM_DEBUG_NORMAL, &err);
 if(err != B4PFM_OK) 
