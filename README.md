@@ -9,17 +9,6 @@ Download article (postprint): http://urn.fi/URN:NBN:fi:jyu-201509022794
 
 ## API (see ```b4pfm.h```)
 
-### Data padding format:
-
-#### 2D:
-```
- --
-| 1
-| 1
-| 1
-
-```
-
 ### Debug flags:
 ```
 #define B4PFM_DEBUG_NONE		0 // No debug messages
