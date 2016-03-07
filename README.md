@@ -9,6 +9,17 @@ Download article (postprint): http://urn.fi/URN:NBN:fi:jyu-201509022794
 
 ## API (see ```b4pfm.h```)
 
+### Data padding format:
+
+#### 2D:
+```
+ --
+| 1
+| 1
+| 1
+
+```
+
 ### Debug flags:
 ```
 #define B4PFM_DEBUG_NONE		0 // No debug messages
@@ -107,7 +118,7 @@ for(int i = 0; i < N1; i++)
           f[i*LDF+j] = get_right_hand_size(i, j);
 
 // Get optimized parameters. Will use the first available OpenCL device 
-// and allocates the tmp1 and tmp2 buffers automatically.
+// and allocates the tmp1 and tmp2 buffers automatically. Slow process!
 b4pfm2D_params params;
 err = b4pfm2D_auto_opts(
       0, 0, 0, &params, FORCE_RADIX2, K1, K2, LDF, DOUBLE, B4PFM_DEBUG_NORMAL);
@@ -121,12 +132,12 @@ b4pfm2D solver = b4pfm2D_init_solver(
 if(err != B4PFM_OK) 
       error();
 
-// Run solver. 
+// Run solver
 err = b4pfm2D_load_and_run_solver_double(solver, f, B4PFM_DEBUG_NORMAL);
 if(err != B4PFM_OK) 
       error();
 
-// Free allocated data
+// Release the allocated resources
 b4pfm2D_free_solver(solver);
 
 ```
